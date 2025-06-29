@@ -1,7 +1,6 @@
 import React from 'react';
 import { Menu, X, Moon, Sun, Download } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
-import shenalpdf from './../images/Shenal De Silva CV.pdf'
 
 interface HeaderProps {
   activeSection: string;
@@ -27,11 +26,11 @@ const Header: React.FC<HeaderProps> = ({
     }
   };
 
-  const handleResumeDownload = () => {
-    // Create a dummy PDF download - replace with your actual resume
+   const handleResumeDownload = () => {
+    // Update the link to your actual resume in the public folder
     const link = document.createElement('a');
-    link.href = '#'; // Replace with your resume URL
-    link.download = shenalpdf;
+    link.href = '/Shenal_De_Silva_Resume.pdf'; // Place your PDF in the public folder
+    link.download = 'Shenal_De_Silva_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
