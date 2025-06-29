@@ -77,13 +77,7 @@ const Header: React.FC<HeaderProps> = ({
 
           {/* Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <button
-              onClick={handleResumeDownload}
-              className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-200 hover:scale-105"
-            >
-              <Download size={16} />
-              <span>Resume</span>
-            </button>
+            
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"

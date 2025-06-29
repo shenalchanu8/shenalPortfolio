@@ -2,107 +2,125 @@ import React from 'react';
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
 import shenal from './../images/shenal.jpg';
 
-
 const Hero: React.FC = () => {
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900/20"></div>
-      
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white dark:bg-gray-900">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-100/30 via-transparent to-transparent dark:from-blue-900/10"></div>
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl animate-pulse dark:bg-purple-900/20"></div>
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl animate-pulse delay-1000 dark:bg-blue-900/20"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto">
-          {/* Profile Image */}
-          <div className="mb-8">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-24">
+          {/* Left side - Content */}
+          <div className="lg:w-1/2 text-left animate-fade-in-up">
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 font-medium mb-2">
+              Hello, I'm
+            </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-tight mb-4">
+              Shenal De Silva
+            </h1>
             <div className="relative inline-block">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-2xl">
-                <img
-                  src={shenal}
-                  alt="Profile"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 animate-pulse"></div>
+              <span className="text-xl sm:text-2xl lg:text-3xl text-gray-700 dark:text-gray-200 font-semibold relative z-10">
+                Full Stack Developer
+              </span>
+              <span className="absolute bottom-0 left-0 w-full h-2 bg-purple-400/30 dark:bg-purple-600/30 -z-0 transform translate-y-1"></span>
+            </div>
+            
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mt-6 mb-8 leading-relaxed max-w-lg">
+              I craft exceptional digital experiences with modern web technologies. 
+              Passionate about building clean, efficient, and user-centered applications.
+            </p>
+
+            {/* Social Links */}
+            <div className="flex space-x-5 mb-10">
+              <a
+                href="https://github.com/shenalchanu8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-110 border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-purple-400"
+                aria-label="GitHub"
+              >
+                <Github size={22} className="text-gray-700 dark:text-gray-300" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/shenal-de-silva-0a7670278/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-110 border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-purple-400"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={22} className="text-blue-600 dark:text-blue-400" />
+              </a>
+              <a
+                href="mailto:shenalchanuka3@gmail.com"
+                className="p-3 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-110 border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-purple-400"
+                aria-label="Email"
+              >
+                <Mail size={22} className="text-red-500 dark:text-red-400" />
+              </a>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={() => scrollToSection('about')}
+                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-[1.02] font-medium flex items-center justify-center gap-2 shadow-md hover:shadow-blue-500/20"
+              >
+                <span>About Me</span>
+                <ChevronDown size={18} />
+              </button>
+              <button
+                onClick={() => scrollToSection('projects')}
+                className="px-6 py-3 border border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-800 transition-all duration-300 hover:scale-[1.02] font-medium shadow-sm hover:shadow-md"
+              >
+                View Projects
+              </button>
             </div>
           </div>
 
-          {/* Introduction */}
-          <div className="space-y-6 animate-fade-in">
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 font-medium">
-              Hello, I'm
-            </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-              Shenal De Silva
-            </h1>
-            <p className="text-xl sm:text-2xl lg:text-3xl text-gray-700 dark:text-gray-200 font-semibold">
-              Full Stack Developer
-            </p>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Passionate about creating beautiful, functional, and user-friendly applications. 
-              I specialize in React, Node.js, and modern web technologies.
-            </p>
-          </div>
-
-          {/* Social Links */}
-          <div className="mt-8 flex justify-center space-x-6">
-            <a
-              href="https://github.com/shenalchanu8"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200/50 dark:border-gray-700/50"
-            >
-              <Github size={24} className="text-gray-700 dark:text-gray-300" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/shenal-de-silva-0a7670278/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200/50 dark:border-gray-700/50"
-            >
-              <Linkedin size={24} className="text-blue-600 dark:text-blue-400" />
-            </a>
-            <a
-              href="shenalchanuka3@gmail.com"
-              className="p-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200/50 dark:border-gray-700/50"
-            >
-              <Mail size={24} className="text-red-600 dark:text-red-400" />
-            </a>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-            <button
-              onClick={scrollToAbout}
-              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 font-semibold"
-            >
-              Learn More About Me
-            </button>
-            <button
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 transition-all duration-300 hover:scale-105 font-semibold"
-            >
-              View My Work
-            </button>
+          {/* Right side - Profile Image */}
+          <div className="lg:w-1/2 flex justify-center lg:justify-end relative">
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+              {/* Image container with elegant border and shadow */}
+              <div className="absolute inset-0 rounded-3xl overflow-hidden border-8 border-white dark:border-gray-800 shadow-2xl z-10">
+                <img
+                  src={shenal}
+                  alt="Shenal De Silva"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* Decorative elements */}
+              <div className="absolute -bottom-6 -left-6 w-full h-full rounded-3xl border-8 border-purple-400/20 dark:border-purple-600/20 z-0"></div>
+              <div className="absolute -top-6 -right-6 w-full h-full rounded-3xl border-8 border-blue-400/20 dark:border-blue-600/20 z-0"></div>
+              
+              {/* Floating tech stack badges (optional) */}
+              <div className="absolute -bottom-5 -left-5 bg-white dark:bg-gray-800 px-3 py-1 rounded-full shadow-md z-20 border border-gray-200 dark:border-gray-700">
+                
+              </div>
+              <div className="absolute -top-5 -right-5 bg-white dark:bg-gray-800 px-3 py-1 rounded-full shadow-md z-20 border border-gray-200 dark:border-gray-700">
+         
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
           <button
-            onClick={scrollToAbout}
-            className="animate-bounce p-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300"
+            onClick={() => scrollToSection('about')}
+            className="animate-bounce p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            aria-label="Scroll down"
           >
             <ChevronDown size={24} className="text-gray-600 dark:text-gray-300" />
           </button>
